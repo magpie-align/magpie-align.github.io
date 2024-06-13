@@ -212,7 +212,7 @@
 							<img src="https://img.shields.io/badge/-🤗_HUGGINGFACE-green?style=for-the-badge" style="height:35px;">
 						</a>
 
-						<a target="_blank" href="https://arxiv.org/abs/2406.08464">
+						<a target="_blank" href="https://arxiv.org/abs/">
 							<img src="https://img.shields.io/badge/-Paper-red?style=for-the-badge&logo=arxiv" style="height:35px;">
 						</a>
 				  </p>
@@ -268,147 +268,22 @@
 						<div class="row">
 							<div class="col-md-12" id="about" style="color: rgb(0, 81, 128);">
 								<!-- <h2 class="widget-title">(Bill) Yuchen Lin</h2> -->
-								<h4 class="widget-title"><span class="section"><a
-											href="#intro"><b><em>Introduction</em></b></a></span></h4>  
-									<div class="callout-box">										
-									❓ &nbsp;<b style="color:#851871">Alignment Data Generation:</b> High-quality alignment data is critical for aligning large language models (LLMs). Is it possible to synthesize high-quality instructions at scale by directly extracting data from advanced aligned LLMs themselves? </b>
-									</div>
-									<div class="row">
-									<div class="col-md-7">
-										<div class="callout-box">
-											🔍 &nbsp;<b  style="color:#854b18">Conversation Template:</b> A typical input to an aligned LLM contains three key components: the pre-query template, the query, and the post-query template. For instance, an input to Llama-2-chat could be [INST] Hi! [/INST], where [INST] is the pre-query template and [/INST] is the post-query template. These templates are predefined by the creators of the aligned LLMs to ensure the correct prompting of the models.
-											We observe that when we only input the pre-query template to aligned LLMs such as Llama-3-Instruct, they self-synthesize a user query due to their auto-regressive nature!
-											</a>	 
-										</div> 
-									</div>
-									
-									<div class="col-md-5">
-										<a href="images/comic.png" target="_blank"> 
-											<img src="images/comic.png" width="100%" height="100%" class="center" /> </a>
-									</div>
+								<h3 class="widget-title">Magpie Examples</h3>									
+							<div class="col-md-12" style="padding-top:20px;">
+								<a href="images/pipeline.png" target="_blank"> 
+									<img src="images/pipeline.png" width="100%" height="100%" class="center" /> 
+								</a>
+							</div>
+							<div class="col-md-12" style="padding-top:20px;">
+								<a href="images/pipeline.png" target="_blank"> 
+									<img src="images/pipeline.png" width="100%" height="100%" class="center" /> 
+								</a>
+							</div>
 				</div>
 
 			</div> <!-- /.col-md-4 -->
 		</div>
 	</div>
-
-	<div class="row">
-		<div class="col-md-12">
-			<div class="box-content">
-				<div class="row">
-					<div class="col-md-12" id="tds">
-						<h4 class="widget-title"><span class="section"><a href="tds.html"><b><em>Introduction to Magpie</em></b></a></span></h4>
-						<p style="color:black;">
-							<b>Magpie</b> is a data synthesis pipeline that generates high-quality alignment data. Magpie <b>does not</b> rely on prompt engineering or seed questions. Instead, it directly constructs instruction data by prompting aligned LLMs with a <b>pre-query template</b> for sampling instructions.<br><br>
-							<b>Magpie Pipeline:</b>
-						</p>
-							<ol style="font-size: large; color: rgb(0, 81, 128)">
-								<li><b>Step 1: Instruction Gneration</b>: Magpie crafts an input query in the format of the predefined instruction template of the LLM.
-									This query defines only the role of instruction provider (e.g., user), and does not provide any instruction.
-									The auto-regressive LLM has been fine-tuned using instruction data in the format of the predefined instruction template.
-									Thus, the LLM autonomously generates an instruction when the query crafted by Magpie is given as an input.</li>
-								<li><b>Step 2: Response Generation</b>: Magpie sends the instruction to the LLM to generate the responses. </li>
-
-								<div class="col-md-12" style="padding-top:20px;">
-									<a href="images/pipeline.png" target="_blank"> 
-										<img src="images/pipeline.png" width="100%" height="100%" class="center" /> 
-									</a>
-								</div>
-							</ol>
-						<!-- </div> -->
-					</div>
-				</div>
-			</div>
-		</div>
-	</div> <!-- /.col-md-4 -->
-	
-	<div class="row">
-		<div class="col-md-12">
-			<div class="box-content">
-				<div class="row">
-					<div class="col-md-12" id="eval">
-						<h4 class="widget-title" style="margin-bottom: 5px;">
-							<span class="section">
-								<a href="index.html"><b><em>Magpie-Air and Magpie-Pro Datasets</em></b></a>
-							</span>
-						</h4>
-						
-						<p style="color:black; margin-top: 5px; margin-bottom: 10px;"> 
-							<b>Built with Meta Llama-3 Series</b>
-						</p>
-						
-						<h4 style="font-weight: 600; margin-top: 10px;"> 
-							🤗 HuggingFace: <a href="https://huggingface.co/Magpie-Align" target="_blank" style="color: orange; text-decoration: underline;">https://huggingface.co/magpie-align</a>
-						</h4>
-						<div class="col-md-12"> 
-							<ul>
-								<li><b>Magpie-Air (Generated by Llama-3-8B):</b> 
-									<a href="https://huggingface.co/datasets/Magpie-Align/Llama-3-Magpie-Air-3M-v0.1" target="_blank">Magpie-Air-3M</a> (full version, unfiltered), 
-									<a href="https://huggingface.co/datasets/Magpie-Align/Magpie-Air-300K-Filtered" target="_blank">Magpie-Air-300K-Filtered</a> (filtered version), 
-									<a href="https://huggingface.co/datasets/Magpie-Align/Magpie-Air-MT-300K-v0.1" target="_blank">Magpie-Air-MT-300K</a> (multi-turn version). </li>
-								<li><b>Magpie-Pro (Generated by Llama-3-70B):</b> 
-									<a href="https://huggingface.co/datasets/Magpie-Align/Llama-3-Magpie-Pro-1M-v0.1" target="_blank">Magpie-Pro-1M</a> (full version, unfiltered), 
-									<a href="https://huggingface.co/datasets/Magpie-Align/Magpie-Pro-300K-Filtered" target="_blank">Magpie-Pro-300K-Filtered</a> (filtered version), 
-									<a href="https://huggingface.co/datasets/Magpie-Align/Magpie-Pro-MT-300K-v0.1" target="_blank">Magpie-Pro-MT-300K</a> (multi-turn version). </li>
-							</ul>  
-						</div>
-
-					</div>
-
-					<div class="col-md-12">
-
-					</div>
-				</div>
-
-			</div>
-
-		</div> 
-	</div>
-
-	<div class="row">
-		<div class="col-md-12">
-			<div class="box-content">
-				<div class="row">
-					<div class="col-md-12" id="eval">
-						<h4 class="widget-title" style="margin-bottom: 5px;">
-							<span class="section">
-								<a href="index.html"><b><em>Performance of Magpie-Air and Magpie-Pro</em></b></a>
-							</span>
-						</h4>
-						<h4 style="font-weight: 600; margin-top: 10px;"> 
-							🤗 HuggingFace Model: <a href="https://huggingface.co/Magpie-Align/Llama-3-8B-Magpie-Pro-SFT-v0.1" target="_blank" style="color: orange; text-decoration: underline;">Magpie-Align/Llama-3-8B-Magpie-Pro-SFT-v0.1</a>
-						</h4>
-						<div class="col-md-12" style="padding-top:10px;">
-							<a href="images/performance.png" target="_blank"> 
-								<img src="images/performance.png" width="100%" height="100%" class="center" /> 
-							</a>
-						</div>
-
-					</div>
-
-					<div class="col-md-12">
-
-					</div>
-				</div>
-
-			</div>
-
-		</div> 
-	</div>
-
-	<div class="box-content">
-	<div class="row">
-		<div class="col-md-12" id="misc">
-			<h4 class="widget-title"><span><b>Citation </b></span></h4>
-			<div style="font-size:15px">
-				<pre>
-			<code>
-			</code></pre>
-			</div>
-		</div>
-	</div>
-	</div>
-
 
 	<a href="#" id="top-link" onclick="window.scrollTo(0, 0);" class="fa fa-angle-up"></a>
 
